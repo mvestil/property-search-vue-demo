@@ -1,24 +1,13 @@
-# vue
+Property search demo using Vue and Mapbox
 
 ## Project setup
+
 ```
-npm install
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm run serve`
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Quirks
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Several project properties are searchable in the sidebar, but not all. For demo purposes, only those unique input fields are included (e.g. Text, Checkbox, Slider, DatePicker, etc.).

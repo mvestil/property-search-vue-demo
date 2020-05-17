@@ -1,8 +1,12 @@
 <template>
   <div id="sidebar">
-    <b-sidebar id="filterable-sidebar" title="Filter" :visible="true">
+    <b-sidebar id="filterable-sidebar" title="Filter" :visible="true" no-header>
       <div class="px-3 py-2">
-        <b-form @submit="onSubmit">
+        <b-form @submit.prevent="onSubmit">
+          <b-form-group>
+            <b-button type="submit" variant="primary">Search</b-button>
+          </b-form-group>
+
           <b-form-group id="input-group-project-id" label="Project ID:" label-for="project-id">
             <b-form-input id="project-id" v-model="form.project_id"></b-form-input>
           </b-form-group>
@@ -59,7 +63,9 @@
             :tip-formatter="this.$options.filters.numberWithCommas"
           />
 
-          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-form-group>
+            <b-button type="submit" variant="primary">Search</b-button>
+          </b-form-group>
         </b-form>
       </div>
     </b-sidebar>
@@ -108,8 +114,7 @@ export default {
   },
 
   methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
+    onSubmit() {
       this.filterData(this.form);
     },
 

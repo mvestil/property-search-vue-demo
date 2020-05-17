@@ -661,7 +661,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [151.203425, -33.872068]
+        "coordinates": [115.1398, 36.1699]
       }
     },
     {
@@ -674,7 +674,7 @@
           "Type": "OFFICE - fitout",
           "Address": "350 George St (Lot 1 DP1161992 & Lots 1-10 & 14-16 SP86960)",
           "Suburb": "SYDNEY",
-          "State": "Tasmania",
+          "State": "New South Wales",
           "Stage": "DA Approved",
           "Category": "COMMERCIAL PREMISES",
           "SubCategory": "OFFICES",

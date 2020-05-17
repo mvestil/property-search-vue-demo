@@ -6,6 +6,7 @@
       :accessToken="accessToken"
       :mapStyle="mapStyle"
       :center="coordinates"
+      @load="onMapLoaded"
     >
       <MglMarker
         :key="index"
@@ -50,7 +51,7 @@
 </template>
 
 <script>
-import Mapbox from "mapbox-gl";
+//import Mapbox from "mapbox-gl";
 import { MglMap, MglPopup, MglMarker } from "vue-mapbox";
 import { mapConfig } from "./map-config";
 import "./map.css";
@@ -65,8 +66,34 @@ export default {
       coordinates: mapConfig.coordinates
     };
   },
-  created() {
-    this.mapbox = Mapbox;
+
+  methods: {
+    onMapLoaded(event) {
+      this.map = event.map;
+    }
+  },
+
+  updated() {
+    const filteredGeoJson = { ...this.geoJson };
+
+    if (!filteredGeoJson.features.length) {
+      alert("No result found " + filteredGeoJson.features.length);
+
+      return;
+    }
+
+    const coordinates = filteredGeoJson.features.map(feature => {
+      return feature.geometry.coordinates;
+    });
+
+    // if only 1 coordinate found, add the default coordinates to fit mao to a bounding box
+    if (coordinates.length === 1) {
+      coordinates.unshift(this.coordinates);
+    }
+
+    this.map.fitBounds(coordinates, {
+      padding: { top: 100, bottom: 250, left: 15, right: 5 }
+    });
   }
 };
 </script>
