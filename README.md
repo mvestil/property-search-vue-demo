@@ -1,5 +1,11 @@
 Property search demo using Vue and Mapbox
 
+## Requirement
+
+```
+Node v10.15.3
+```
+
 ## Project setup
 
 ```
